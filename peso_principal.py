@@ -25,6 +25,11 @@ def pbarra():
                     columns='frecuencia')
     
     plt.bar(tab.index,tab["frecuencia"])
+    
+    
+    
+    
+    
     plt.xlabel("Frecuencia")
     plt.show()
     
@@ -35,38 +40,70 @@ def ppastel():
     pesos = [ item for item in df['peso']]
 
     data = pesos
+    
+    
+    
     result = []
+    
+    
     for i in pesos:
                 if i not in result:
+                
+                
                                 result.append(i)
     result.sort()
+    
+    
+    #freq
     freq = [ i for i in tab['Frecuencia']]
     fig1,ax1 = plt.subplots()
     ax1.pie(freq, labels=result,
+            
             autopct='%1.1f%%',
+            
             shadow=True, 
+            
             startangle=90)
+    
     ax1.axis('equal')
+    
     plt.show()
     
 
 def  pFAcumulada():
     tab = pd.crosstab(index=df['peso'],
+                      
+                      
                       columns='Frecuencia')
 
     pesos = [ item for item in df['peso']]
+    
     data = pesos
+    
     result = []
+    
     for i in data:
+        
+        
+        
                 if i not in result:
+                
                                 result.append(i)
+                    
+                    
+                    
     result.sort()
     freq = [ i for i in tab['Frecuencia']]
+    
+    
+    
 
     orden=[]
     acumulado=0
     for valor in freq:
+        
                 acumulado = acumulado + valor 
+            
                 orden.append(acumulado)
     
     x = result
@@ -81,6 +118,7 @@ def  pFAcumulada():
 def pesoPoligonos():
     tab = pd.crosstab(index=df['peso'],
                       columns='Frecuencia')
+    
     pesos = [ item for item in df['peso']]
     data = pesos
     result = []
@@ -88,6 +126,7 @@ def pesoPoligonos():
                 if i not in result:
                                 result.append(i)
     result.sort()
+    
     freq = [ i for i in tab['Frecuencia']]
     fig, ax = plt.subplots()
     ax.plot(result, freq)
